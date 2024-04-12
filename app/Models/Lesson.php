@@ -8,18 +8,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Lesson extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
-    protected $fillable = [
-        'name', 'description', 'credit', 'code'
-    ];
+    protected $guarded;
 
     public function users() {
         return $this->belongsToMany(User::class);
     }
 
-    public function section() {
-        return $this->belongsTo(Section::class);
+    public function sections() {
+        return $this->belongsToMany(Section::class, 'lesson_section');
     }
 }
 

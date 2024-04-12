@@ -17,10 +17,6 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->boolean('status')->default('1');
             $table->enum('language', ['english', 'turkish'])->default('turkish');
-            $table->integer('users_id')->nullable();
-            $table->integer('head_of_department_id')->nullable();
-            $table->integer('lesson_id')->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -29,3 +29,4 @@ Route::middleware('auth:sanctum')->put('/admin/sections/{id}', [SectionControlle
 
 Route::middleware('auth:sanctum')->get('/admin/lessons', [LessonController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/admin/lesson/store', [LessonController::class, 'store']);
+Route::middleware('auth:sanctum')->delete('/admin/lessons/{id}', [LessonController::class, 'destroy']);

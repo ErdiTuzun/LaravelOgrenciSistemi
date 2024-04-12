@@ -20,7 +20,7 @@
                 >
                     <v-text-field
                         v-model="lesson.credit"
-                        label="Ders Kredisi"
+                        label="Ders Kredisi Örn: 3-9"
                         required
                     ></v-text-field>
                 </v-col>
@@ -30,10 +30,27 @@
                 >
                     <v-text-field
                         v-model="lesson.code"
-                        :counter="10"
+                        :counter="5"
                         label="Ders Kodu"
                         required
                     ></v-text-field>
+                </v-col>
+                <v-col
+                    cols="12"
+                    md="12"
+                >
+                    <v-select
+                    v-model="selectedSectionIds"
+                    :items="sections"
+                    item-title="name"
+                    item-value="id"
+                    label="Bölümler"
+                    multiple
+                    chips
+                    dense
+                    ></v-select>
+                    {{sections}}<br>
+                    {{selectedSectionIds}}
                 </v-col>
 
                 <v-col
@@ -79,6 +96,8 @@
 <script>
 
 
+import sections from "@/Pages/Sections.vue";
+
 export default {
 
     data() {
@@ -86,6 +105,8 @@ export default {
             successShow: false,
             loadingAlert: false,
             errorData: {},
+            sections: [],
+            selectedSectionIds: [],
             lesson: {
                 name: '',
                 description: '',
@@ -110,6 +131,17 @@ export default {
         }
     },
 
+    created() {
+        axios.get('/api/admin/sections')
+            .then(response => {
+                this.sections = response.data.map(section => ({ id: section.id, name: section.name }));
+                console.log(this.sections)
+            })
+            .catch(error => {
+                console.error('Bölümleri alırken bir hata oluştu:', error);
+            });
+    },
+
     methods: {
         async submit(event) {
             this.loading = true
@@ -119,12 +151,25 @@ export default {
             this.loading = false
         },
         lessonStore() {
-            this.loadingAlert = true
+            this.loadingAlert = true;
+
+            // selectedSectionIds değişkeni ile kontrol et
+            if (!Array.isArray(this.selectedSectionIds)) {
+                console.error('Seçilen bölümler bir dizi olmalıdır.');
+                return;
+            }
+            if (this.selectedSectionIds.length === 0) {
+                console.error('En az bir bölüm seçmelisiniz.');
+                return;
+            }
+
             const newLesson = {
                 name: this.lesson.name,
                 description: this.lesson.description,
                 credit: this.lesson.credit,
                 code: this.lesson.code,
+                // selectedSectionIds değişkenini kullan
+                section_ids: this.selectedSectionIds,
             }
             axios.post('/api/admin/lesson/store', newLesson).then(res => {
                 if (res.status === 200) {

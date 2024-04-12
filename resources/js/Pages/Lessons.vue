@@ -88,11 +88,11 @@ export default {
         this.refreshTable();
     },
     methods: {
-        lessonDelete (id) {
+        LessonDelete (id) {
             axios.delete('/api/admin/lessons/' + id).then(res => {
                 if (res.status === 200) {
-                    const index = this.sections.findIndex(item => item.id === id)
-                    this.sections.splice(index,1);
+                    const index = this.lessons.findIndex(item => item.id === id)
+                    this.lessons.splice(index,1);
                     this.successShow = true;
                     setTimeout(() => {
                         this.successShow = false;

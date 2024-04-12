@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Section extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillable = [
         'name', 'description', 'status', 'language'
@@ -19,9 +19,9 @@ class Section extends Model
         return $this->hasMany(User::class, 'users_id');
     }
 
-    public function lesson()
+    public function lessons()
     {
-        return $this->hasMany(Lesson::class);
+        return $this->belongsToMany(Lesson::class, 'lesson_section');
     }
     public function headOfDepartment()
     {
