@@ -1,8 +1,8 @@
 <div>
     <p style="display: flex; justify-content: space-between;">
         <a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo"></a>
-[        [<a href="https://laravel.com" target="_blank"><img src="/public/logo/vue.png" width="300" alt="Laravel Logo"></a>](https://vuejs.org/images/logo.png)
-](https://cdn.icon-icons.com/icons2/2699/PNG/512/vuejs_logo_icon_169247.png)    </p>
+        <a href="https://laravel.com" target="_blank"><img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/vuejs_logo_icon_169247.png" width="300" alt="Laravel Logo"></a>
+    </p>
 </div>
 
 <p align="center">
