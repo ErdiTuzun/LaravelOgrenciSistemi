@@ -4,10 +4,9 @@
         <a href="https://laravel.com" target="_blank"><img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/vuejs_logo_icon_169247.png" width="300" alt="Laravel Logo"></a>
     </p>
 </div>
-
+<br>
 <p align="center">
 <a href="https://github.com/ErdiTuzun/LaravelOgrenciSistemi">Laravel 10 </a>
-<a href="https://github.com/ErdiTuzun/LaravelOgrenciSistemi"></a>
 <a href="https://github.com/ErdiTuzun/LaravelOgrenciSistemi">- Vue 3</a>
 </p>
 
