@@ -13,3 +13,7 @@
 * Kullanıcı Kaydı.
 * Bölüm Kaydı.
 * Ders Bölüm ilişkili kayıt.
+
+13.04.2024 Notes.
+* Lesson ve Section düzenleme sayfaları eklendi.
+* Küçük hatalar giderildi.

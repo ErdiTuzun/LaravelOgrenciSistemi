@@ -67,7 +67,7 @@
 
                 <v-btn class="mt-2"
                        :loading="loading"
-                       color="success" type="submit" block>Bölümü Kaydet
+                       color="success" type="submit" block>Dersi Kaydet
                 </v-btn>
                 <div id="successMessage">
                 </div>

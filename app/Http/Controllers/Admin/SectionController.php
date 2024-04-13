@@ -50,9 +50,10 @@ class SectionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $section = Section::findOrFail($id);
+        return response()->json($section);
     }
 
     /**
@@ -66,9 +67,12 @@ class SectionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(SectionRequest $request, string $id)
+    public function update(SectionRequest $request, $id)
     {
-        //
+        $section = Section::findOrFail($id);
+        $section->update($request->all());
+
+        return response()->json($section);
     }
 
     /**

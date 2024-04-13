@@ -43,7 +43,7 @@
                 item-key="id"
                 :search="search">
                 <template v-slot:item.actions="{ item }">
-                    <v-btn size="small" color="success" class="mr-2" icon="mdi-pencil"></v-btn>
+                    <v-btn size="small" color="success" class="mr-2" icon="mdi-pencil" @click="editLesson(item.id)"></v-btn>
                     <v-btn size="small" color="red" icon="mdi-delete" @click.prevent="LessonDelete (item.id)"></v-btn>
                 </template>
             </v-data-table>
@@ -88,6 +88,9 @@ export default {
         this.refreshTable();
     },
     methods: {
+        editLesson(sectionId) {
+            window.location.href = '/admin/lessons/edit/' + sectionId;
+        },
         LessonDelete (id) {
             axios.delete('/api/admin/lessons/' + id).then(res => {
                 if (res.status === 200) {

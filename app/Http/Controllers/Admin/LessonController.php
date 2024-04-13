@@ -52,5 +52,30 @@ class LessonController extends Controller
             return response()->json(['message' => 'Ders bulunamadı.'], 404);
         }
     }
+
+    public function show($id) {
+        $lesson = Lesson::with('sections')->findOrFail($id);
+        return response()->json($lesson);
+    }
+
+    public function update(LessonRequest $request, $id)
+    {
+        $lesson = Lesson::findOrFail($id);
+
+        $description = $request->description;
+        $credit = $request->credit;
+        $descritionNull = $description == null ? "{$request->name} dersi {$credit} krediye sahip bir derstir. Alanında uzman öğretim kadrosu eşliğinde, teorik bilgiyi pratik deneyimlerle birleştirerek öğrencilere kapsamlı bir eğitim sunar." : $description;
+
+        $lesson->name = $request->input('name');
+        $lesson->description = $descritionNull;
+        $lesson->credit = $request->input('credit');
+        $lesson->code = $request->input('code');
+
+        $lesson->sections()->sync($request->input('section_ids'));
+
+        $lesson->save();
+
+        return response()->json(['message' => 'Ders başarıyla güncellendi.'], 200);
+    }
 }
 

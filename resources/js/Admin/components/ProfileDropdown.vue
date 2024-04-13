@@ -66,6 +66,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 
 export default {
     components: {ResponsiveNavLink},
+    name: 'ProfileDropdown',
     data() {
         return {
             user: [],
@@ -74,7 +75,7 @@ export default {
 
         }
     },
-    mounted() {
+    created () {
         axios.get('/admin/userProfile')
             .then(response => {
                 this.user = response.data;

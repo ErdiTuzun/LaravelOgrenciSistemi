@@ -51,7 +51,7 @@
                     <span v-else>İngilizce</span>
                 </template>
                 <template v-slot:item.actions="{ item }">
-                    <v-btn size="small" color="success" class="mr-2" icon="mdi-pencil"></v-btn>
+                    <v-btn size="small" color="success" class="mr-2" icon="mdi-pencil" @click="editSection(item.id)"></v-btn>
                     <v-btn size="small" color="red" icon="mdi-delete" @click.prevent="sectionDelete (item.id)"></v-btn>
                 </template>
             </v-data-table>
@@ -96,6 +96,9 @@ export default {
         this.refreshTable();
     },
     methods: {
+        editSection(sectionId) {
+            window.location.href = '/admin/sections/edit/' + sectionId;
+        },
         sectionDelete (id) {
             axios.delete('/api/admin/sections/' + id).then(res => {
                 if (res.status === 200) {

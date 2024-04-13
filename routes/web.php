@@ -45,11 +45,20 @@ Route::get('/admin/sections/store', function () { // Yeni Bölüm ekle
     return Inertia::render('SectionStore');
 })->middleware(['auth', 'verified'])->name('sections');
 
-Route::get('/admin/lessons', function () { // Bölümleri Listele
-    return Inertia::render('Lessons');
-})->middleware(['auth', 'verified'])->name('sections');
+Route::get('/admin/sections/edit/{id}', function () { // Bölüm Güncelle
+    return Inertia::render('SectionEdit');
+})->middleware(['auth', 'verified'])->name('section.edit');
 
-Route::get('/admin/lesson/store', function () { // Yeni Bölüm ekle
+Route::get('/admin/lessons', function () { // Ders Listele
+    return Inertia::render('Lessons');
+})->middleware(['auth', 'verified'])->name('lesson.show');
+
+Route::get('/admin/lessons/edit/{id}', function () { // Ders Düzenle
+    return Inertia::render('LessonEdit');
+})->middleware(['auth', 'verified'])->name('lesson.edit');
+
+
+Route::get('/admin/lesson/store', function () { // Yeni Ders ekle
     return Inertia::render('LessonStore');
 })->middleware(['auth', 'verified'])->name('lesson.store');
 
