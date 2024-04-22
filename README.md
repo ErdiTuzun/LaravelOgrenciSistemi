@@ -12,6 +12,12 @@
 
 ## Laravel 10 - Inertiajs + Vuejs 3 İle Öğrenci Sistemi
 
+<h3>Demo Bilgileri</strong></h2>
+username: admin <br>
+password: 111
+<hr>
+
+
 11.04.2024 Notes.
 * Authentication Name/Mail/Phone ile Giriş yapabilme. 
 * Kullanıcı Kaydı.
@@ -21,3 +27,7 @@
 13.04.2024 Notes.
 * Lesson ve Section düzenleme sayfaları eklendi.
 * Küçük hatalar giderildi.
+
+22.04.2024 Notes.
+* Dashboard Layout oluşturuldu Düzenlemesi yapıldı.
+* Sidebar Eklendi.
