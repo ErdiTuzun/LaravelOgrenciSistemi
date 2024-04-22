@@ -33,3 +33,5 @@ Route::middleware('auth:sanctum')->post('/admin/lesson/store', [LessonController
 Route::middleware('auth:sanctum')->get('/admin/lessons/{id}', [LessonController::class, 'show']);
 Route::middleware('auth:sanctum')->put('/admin/lessons/{id}', [LessonController::class, 'update']);
 Route::middleware('auth:sanctum')->delete('/admin/lessons/{id}', [LessonController::class, 'destroy']);
+
+

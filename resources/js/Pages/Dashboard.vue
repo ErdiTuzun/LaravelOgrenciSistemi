@@ -1,33 +1,25 @@
 <template>
-    <DashboardHeader></DashboardHeader>
-    <div class="min-h-full">
-        <header class="bg-white shadow">
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ pageName }}</h1>
-            </div>
-            <v-progress-linear
-                bg-color="pink-lighten-2"
-                color="primary"
-                model-value="100"
-            ></v-progress-linear>
-        </header>
-        <main>
-            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+    <AdminLayout>
+        <template #default>
+            <div class="mx-auto max-w-7xl mt-lg-12 py-6 sm:px-6 lg:px-8">
                 <!-- Your content -->
                 <DashboardContent></DashboardContent>
             </div>
-        </main>
-    </div>
-    </template>
+        </template>
+    </AdminLayout>
+</template>
 
 <script>
 import DashboardHeader from "@/Pages/DashboardHeader.vue";
 import ProfileDropdown from "@/Admin/components/ProfileDropdown.vue";
 import DashboardContent from "@/Admin/components/DashboardContent.vue";
+import Sidebar from "@/Admin/components/Dashboard/Sidebar.vue";
+import Layout from "@/Admin/components/Dashboard/Layout.vue";
+import AdminLayout from "@/Admin/Layout/AdminLayout.vue";
 
 export default {
     // Todo Dynamic Page Title
-    components: {DashboardContent, ProfileDropdown, DashboardHeader},
+    components: {AdminLayout, Layout, Sidebar, DashboardContent, ProfileDropdown, DashboardHeader},
     name: 'Yönetim Paneli',
 
     data() {
@@ -41,3 +33,13 @@ export default {
 }
 
 </script>
+
+<style>
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100vh; /* 100 viewport height */
+}
+</style>

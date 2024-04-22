@@ -7,7 +7,8 @@
         <v-row>
             <v-col
                 cols="12"
-                sm="6"
+                sm="1"
+                md="2"
                 lg="4"
             >
                 <v-card
@@ -24,7 +25,7 @@
                     <template v-slot:append>
                         <v-avatar color="primary">
                             <v-avatar class="text-h6 text-white">
-                              {{ getStudentCount('student') }}
+                                {{ getStudentCount('student') }}
                             </v-avatar>
                         </v-avatar>
                     </template>
@@ -36,7 +37,8 @@
 
             <v-col
                 cols="12"
-                sm="6"
+                sm="1"
+                md="2"
                 lg="4"
             >
                 <v-card
@@ -63,7 +65,8 @@
 
             <v-col
                 cols="12"
-                sm="6"
+                sm="1"
+                md="2"
                 lg="4"
             >
                 <v-card
@@ -99,7 +102,7 @@
                     title="Bölümler"
                 >
                     <v-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab deserunt expedita veritatis voluptatum. Aut dolore harum in quisquam quod.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet aspernatur blanditiis consequuntur corporis earum possimus quod sit, sunt tempore?</v-card-text>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet aspernatur blanditiis consequuntur corporis earum possimus quod sit, sunt tempore?</v-card-text>
                     <template v-slot:prepend>
                         <v-avatar color="blue-darken-2">
                             <v-icon icon="mdi-alarm"></v-icon>
